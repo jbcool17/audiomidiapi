@@ -29,11 +29,30 @@ function onMIDIFailure(error) {
 function onMIDIMessage(message) {
     data = message.data; // this gives us our [command/channel, note, velocity] data.
     console.log('MIDI Data:', 'CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2]); // MIDI data [144, 63, 73]
+    
+    //ADDING MESSAGES TO PAGE
     // $('#display').append(['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2], ' | '].join(' '));
     // $('#display ol').append('<li>' + ['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2]].join(' ') + '</li>')
     $('#display ol').prepend('<li>' + ['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2]].join(' ') + '</li>')
+    
     boxDo(data);
+    boxMove(data);
 
+
+}
+
+var boxMove = function (data) {
+
+    if ( data[1] === 20 ) {
+        console.log('boxMove', data);
+
+        $('#20').css("left", (data[2]/127 * 100) + '%');    
+    }
+
+    if ( data[1] === 21 ) {
+        $('#21').css("left", (data[2]/127 * 100) + '%');    
+    }
+    
 
 }
 
@@ -45,7 +64,6 @@ var boxDo = function(data) {
         $('.box').animate({
             width: data[2] * 10 + 'px',
             opacity: 0.4,
-            fontSize: "3em",
             borderWidth: "10px"
           }, 100 );
 
@@ -55,11 +73,9 @@ var boxDo = function(data) {
         $('.box').animate({
             width: '50px',
             opacity: 1,
-            fontSize: "3em",
             borderWidth: "10px"
           }, 100 );
     }
     
-
 
 }

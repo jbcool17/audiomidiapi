@@ -1,5 +1,34 @@
+body {
+	margin: 0 auto;
+}
+
+#display {
+	margin-top: 100px;
+}
+
+
 .box {
     height: 50px;
     width: 50px;
     background-color: red;
+    font-size: .5em;
+}
+
+.boxMove20 {
+	position: absolute;
+	left:0px;
+    height: 50px;
+    width: 50px;
+    font-size: .5em;
+    background-color: blue;
+}
+
+.boxMove21 {
+	position: absolute;
+	top: 175px;
+	left:0px;
+    height: 50px;
+    width: 50px;
+    font-size: .5em;
+    background-color: green;
 }
