@@ -33,7 +33,7 @@ function onMIDIMessage(message) {
     //ADDING MESSAGES TO PAGE
     // $('#display').append(['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2], ' | '].join(' '));
     // $('#display ol').append('<li>' + ['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2]].join(' ') + '</li>')
-    $('#display ol').prepend('<li>' + ['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2]].join(' ') + '</li>')
+    $('#display ol').prepend('<li>' + ['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2], 'DATE:', Date()].join(' ') + '</li>')
     
     boxDo(data);
     boxMove(data);
@@ -44,7 +44,7 @@ function onMIDIMessage(message) {
 var boxMove = function (data) {
 
     if ( data[1] === 20 ) {
-        console.log('boxMove', data);
+        
 
         $('#20').css("left", (data[2]/127 * 100) + '%');    
     }
