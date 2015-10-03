@@ -1,4 +1,4 @@
-* Audio MIDI API TESTING
+# Audio MIDI API TESTING
 
 - connect midi device
 - display message
