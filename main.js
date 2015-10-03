@@ -29,5 +29,39 @@ function onMIDIFailure(error) {
 function onMIDIMessage(message) {
     data = message.data; // this gives us our [command/channel, note, velocity] data.
     console.log('MIDI Data:', 'CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2]); // MIDI data [144, 63, 73]
-    $('#display').append(['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2], ' | '].join(' '));
+    // $('#display').append(['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2], ' | '].join(' '));
+    // $('#display ol').append('<li>' + ['CHANNEL:',data[0], 'NOTE:', data[1], 'VELOCITY:', data[2]].join(' ') + '</li>')
+
+    boxDo(data);
+
+
+}
+
+
+var boxDo = function(data) {
+    
+
+    if ( data[0] === 153 ) {
+        $('.box').animate({
+            width: data[2] + 'px',
+            opacity: 0.4,
+            marginLeft: "0.6in",
+            fontSize: "3em",
+            borderWidth: "10px"
+          }, 100 );
+
+    }
+
+    if ( data[0] === 137 ) {
+        $('.box').animate({
+            width: '50px',
+            opacity: 1,
+            marginLeft: "0.6in",
+            fontSize: "3em",
+            borderWidth: "10px"
+          }, 100 );
+    }
+    
+
+
 }
