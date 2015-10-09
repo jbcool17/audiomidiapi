@@ -5,3 +5,8 @@
 - animate with jquery
 
 Testing with MIDI for future use.
+
+
+## Interface
+
+- KORG padKONTROL
